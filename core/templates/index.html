@@ -1,4 +1,35 @@
 {% extends "base.html" %}
+{% load humanize %}
 {% block content %}
-  <p>Hi</p>
+<div>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Client</th>
+          <th>Priority</th>
+          <th>Target Date</th>
+          <th>URL</th>
+          <th>Product Area</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for result in results %}
+        <tr>
+          <td>{{ result.title }}</td>
+          <td>{{ result.description }}</td>
+          <td>{{ result.client }}</td>
+          <td>{{ result.priority }}</td>
+          <td>{{ result.target_date }}</td>
+          <td>{{ result.url }}</td>
+          <td>{{ result.product_area }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="{% url 'core:new_request' %}" class="pure-button primary-button">Request a New Feature!</a>
+  </div>
+</div>
 {% endblock %}

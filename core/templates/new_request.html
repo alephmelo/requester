@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block content %}
+  <form class="form-horizontal" action="{% url 'core:new_request' %}" method="POST">
+    {% csrf_token %}
+      <div class="form-group">
+        {{ form }}
+      </div>
+      <button type="submit" class="pure-button pure-button-primary">Create Request</button>
+  </form>
+{% endblock %}

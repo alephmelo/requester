@@ -3,19 +3,38 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Just To Do It - A django-powered task manager." />
     <title>Requester - Web app.</title>
-    <link rel="stylesheet" href="{% static 'css/pure-min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/email.css' %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/flatpickr.min.css' %}"/>
+    <!-- <link rel="stylesheet" href="{% static 'css/pure-min.css' %}"> !-->
   </head>
 <body>
-<div id="layout" class="content pure-g">
+<div class="container">
   {% block content %}
   {% endblock %}
 </div>
 </body>
-<script src="{% static "js/yui-min.js" %}"></script>
 <script src="{% static "js/jquery.js" %}"></script>
+<script src="{% static "js/yui-min.js" %}"></script>
+<script src="{% static "js/flatpickr.min.js" %}"></script>
+<script>
+    YUI().use('node-base', 'node-event-delegate', function (Y) {
+
+        var menuButton = Y.one('.nav-menu-button'),
+            nav        = Y.one('#nav');
+
+        // Setting the active class name expands the menu vertically on small screens.
+        menuButton.on('click', function (e) {
+            nav.toggleClass('active');
+        });
+        var example = flatpickr('#flatpickr', {
+            dateFormat: 'm/d/Y',
+            minDate: Date(),
+        });
+
+    });
+</script>
 </html>
