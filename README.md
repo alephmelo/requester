@@ -44,6 +44,4 @@ Just head to `http://127.0.0.1:8000/` and see the application running.
 ### To-do
 - [ ] User model
 - [ ] User forms
-- [ ] Edit Feature Request
-- [ ] Delete Feature Request
 - [ ] Order By and Filters
