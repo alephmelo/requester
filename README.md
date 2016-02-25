@@ -39,9 +39,13 @@ Quit the server with CONTROL-C.
 ```
 
 ## Using it
+
+### Local
 Just head to `http://127.0.0.1:8000/` and see the application running.
+
+### Cloud (Heroku Server)
+If you want to save time and use it right now head to (https://limitless-cove-82744.herokuapp.com/) and voilà.
 
 ### To-do
 - [x] User model
 - [x] User forms
-- [ ] Order By and Filters
