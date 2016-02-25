@@ -42,6 +42,6 @@ Quit the server with CONTROL-C.
 Just head to `http://127.0.0.1:8000/` and see the application running.
 
 ### To-do
-- [ ] User model
-- [ ] User forms
+- [x] User model
+- [x] User forms
 - [ ] Order By and Filters
