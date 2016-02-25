@@ -1,5 +1,5 @@
 from django import forms
-from .models import FeatureRequest
+from .models import FeatureRequest, Client
 
 class FeatureRequestForm(forms.ModelForm):
     """Feature Request form"""
@@ -35,3 +35,20 @@ class FeatureRequestForm(forms.ModelForm):
                     'class': 'form-control'
                 })
             }
+
+
+class ClientForm(forms.ModelForm):
+    """Client form"""
+    class Meta:
+        model = Client
+        fields = ['name', 'description']
+        widgets = {
+            'name': forms.TextInput(attrs={
+                'class': 'form-control',    
+                }),
+            'description': forms.TextInput(attrs={
+                'class': 'form-control',    
+                }),
+        }
+
+    

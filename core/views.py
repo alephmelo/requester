@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from .models import FeatureRequest
-from .forms import FeatureRequestForm
+from .forms import FeatureRequestForm, ClientForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -43,3 +43,18 @@ def new_request(request):
         form = FeatureRequestForm()
 
     return render(request, 'new_request.html', {'form': form})
+
+
+@login_required
+def new_client(request):
+    if request.method == 'POST':
+        form = ClientForm(request.POST)
+
+        if form.is_valid():
+            new_client_request = form.save(commit=False)
+            new_client_request.save()
+            return HttpResponseRedirect(reverse('core:index'))
+    else:
+        form = ClientForm()
+
+    return render(request, 'new_client.html', {'form': form})
