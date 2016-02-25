@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'core', # Custom app
+    'accounts', # Custom app
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -122,3 +123,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+LOGIN_REDIRECT_URL = 'core:index'
+LOGIN_URL = 'accounts:login'

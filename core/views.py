@@ -3,13 +3,16 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from .models import FeatureRequest
 from .forms import FeatureRequestForm
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def index(request):
     results = FeatureRequest.objects.all().order_by('priority', 'client_id')
     return render(request, 'index.html', {'results': results})
 
 
+@login_required
 def new_request(request):
     if request.method == "POST":
         form = FeatureRequestForm(request.POST)
